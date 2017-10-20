@@ -197,11 +197,11 @@ int dividable(factor_t *a, factor_t *b)
 /**
   * Return a / b as a factorized number
   */
-void divide(factor_t *a, factor_t *b, factor_t *c)
+void factor_divide(factor_t *a, factor_t *b, factor_t *c)
 {
-    int index_a = 0;
+    factor_copy(c, a);
     int index_b = 0;
-    factor_copy(c, b);
+    int index_c = 0;
     while (index_b < b->no) {
     }
     return NULL;
@@ -224,7 +224,7 @@ int getTotalX(int a_size, int* a, int b_size, int* b) {
     if (!dividable(bigger, smaller)) {
         return 0;
     }
-    factor_t *common = divide(bigger, smaller);
+    factor_t *common = factor_divide(bigger, smaller);
     result = count_divisor_no(common);
     free(common);
 done:
